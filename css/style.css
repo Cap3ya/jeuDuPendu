@@ -1,0 +1,117 @@
+@font-face {
+    font-family: lobsterTwo;
+    src: url('../fonts/LobsterTwo-Regular.ttf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    background-color: black;
+}
+
+body {
+    background-color: antiquewhite;
+    font-family: lobsterTwo;
+    font-size: larger;
+
+    align-items: center;
+    max-width: 1280px;
+    min-height: 100vh;
+    margin: 0 auto;
+
+    & main {
+        flex: 1;
+        width: 100%;
+        align-items: center;
+
+        & #imgContainer {
+            flex: 1;
+            width: 100%;
+            justify-content: center;
+
+            & img {
+                object-fit: contain;
+                flex-basis: 400px;
+                flex-shrink: 1;
+                height: auto;
+            }
+        }
+
+        & #secret {
+            font-size: 1.5em;
+            font-weight: 600;
+            letter-spacing: 1ch;
+        }
+
+        & #buttons {
+            gap: 5px;
+            width: 100%;
+            max-width: 650px;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            min-height: 85px;
+
+            & #btnStart {
+                height: 45px;
+                width: 90px;
+
+                &:hover {
+                    background-color: white;
+                    color: black;
+                }
+            }
+
+            & .btnsLetter {
+                flex-basis: 40px;
+                height: 40px;
+
+                color: white;
+                background-color: black;
+                border: 2px solid black;
+                border-radius: 50%;
+
+                &:disabled {
+                    background-color: white;
+                    font-weight: 600;
+                    color: black;
+                }
+            }
+
+        }
+
+        &>* {
+            padding: 1em 0;
+        }
+    }
+
+    &>* {
+        padding: 1em 0;
+    }
+}
+
+.flex {
+    display: flex;
+
+    &.column {
+        flex-direction: column;
+    }
+}
+
+button {
+    border-radius: 2px solid black;
+    border-radius: 5px;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 20px;
+
+    background-color: black;
+    color: white;
+
+    &:hover {
+        cursor: pointer;
+    }
+}

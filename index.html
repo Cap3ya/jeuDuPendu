@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu du pendu</title>
+    <meta name="description" content="Le Pendu est un jeu consistant à trouver un mot en devinant quelles sont les lettres qui le composent.">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body class="flex column">
+    <header>
+        <h1>Jeu du pendu</h1>
+    </header>
+
+    <main class="flex column">
+        <p id="info">C'est partie!</p>
+        
+        <div id="imgContainer" class="flex">
+            <img id="image" src="./images/9.png" alt="image représentant l'avancée du jeu du pendu" height="200"
+                width="200">
+        </div>
+
+        <p id="secret">______</p>
+
+        <div id="buttons" class="flex">
+            <button id="btnStart">Start</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>Made by <a href="https://capeya.me">Capeya</a></p>
+    </footer>
+
+    <script type="module" src="./javascript/main.js"></script>
+</body>
+
+</html>
