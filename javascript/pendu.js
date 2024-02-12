@@ -27,15 +27,10 @@ const pendu = {
         return this.secret.join("");
     },
 
-    handleGuess(letter) {
-        if (this.nWord.includes(letter)) {
-            for (let i = 0; i < this.nWord.length; i++) {
-                if (this.nWord.charAt(i) === letter)
-                    this.secret[i] = this.word.charAt(i);
-            }
-        }
-        else {
-            this.incErrors();
+    updateSecret(letter) {
+        for (let i = 0; i < this.nWord.length; i++) {
+            if (this.nWord.charAt(i) === letter)
+                this.secret[i] = this.word.charAt(i);
         }
     },
 

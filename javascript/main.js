@@ -41,28 +41,32 @@ function start() {
 
 function guess(target) {
 
-    // Update secret or inc errors
-    pendu.handleGuess(target.textContent)
-
-    // DOM
     target.disabled = true;
-    dom.secret.textContent = pendu.getSecret();
-    dom.info.textContent = "Il te reste " + pendu.getRemainingErrors() + " " + (pendu.getRemainingErrors() > 1 ? "tentatives" : "tentative");
-    dom.image.src = `../images/${pendu.getRemainingErrors()}.png`
+    const letter = target.textContent;
+
+    if (pendu.nWord.includes(letter)) {
+        pendu.updateSecret(letter);
+        dom.secret.textContent = pendu.getSecret();
+    } 
+    else {
+        pendu.incErrors();
+        dom.info.textContent = "Il te reste " + pendu.getRemainingErrors() + " " + (pendu.getRemainingErrors() > 1 ? "tentatives" : "tentative");
+        dom.image.src = `../images/${pendu.getRemainingErrors()}.png`
+    }
 
     if (pendu.word === pendu.getSecret()) {
         dom.image.src = "../images/10.png";
         dom.info.textContent = "Tu as Gagné!"
-        outcome();
-    }
+        finish();
+    } 
     else if (pendu.getRemainingErrors() == 0) {
         dom.info.textContent = "Tu as Perdu!";
         dom.secret.textContent = pendu.word;
-        outcome();
+        finish();
     }
 }
 
-function outcome() {
+function finish() {
     dom.btnStart.hidden = false;
     dom.btnStart.textContent = "Restart";
     dom.btnsLetter.forEach(btn => btn.hidden = true)
